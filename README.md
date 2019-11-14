@@ -8,3 +8,5 @@ Process:
 3) Copy the command displayed on the remote terminal window and paste into a local workstation terminal window
 4) Wait for the user to press a key in the remote terminal window indicating that they've finished editing the file in BBEdit
 5) Use rsync to copy the file back from the intermediate server to the remote server
+
+This project uses the iTerm Python API to automate steps 3 and 4 on the local host, and a simple shell script to automate the rest on the remote host.
