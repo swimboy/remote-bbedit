@@ -26,7 +26,7 @@ The shell function provides a command on the remote host named `bbedit` that cop
 
 3. Copy the `.bbedit.shell` file to your remote host and source it in your `.bashrc` or `.zshrc` file by adding this line to the end of the file: `source ~/.bbedit.shell`  If you use `sudo` you'll need to add this to the root's `.bashrc` or `.zshrc` file as well. Change the two variables at the top of the file to match your environment.
 
-4. Copy the `Remote-BBEdit.py` file to `xxxxx` on the local host. This will cause the script to run every time you start iTerm2.
+4. Copy the `Remote-BBEdit.py` file to `$HOME/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch` on the local host. This will cause the script to run every time you start iTerm2.
 
 ## How to Use ##
 
