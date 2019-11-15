@@ -24,7 +24,7 @@ The shell function provides a command on the remote host named `bbedit` that cop
 ```
 
 
-3. Copy the `.bbedit.shell` file to your remote host and source it in your `.bashrc` or `.zshrc` file by adding this line to the end of the file: `source ~/.bbedit.shell`  If you use `sudo` you'll need to add this to the root's `.bashrc` or `.zshrc` file as well. Change the two variables at the top of the file to match your environment.
+3. Copy the `.bbedit.shell` file to your remote host and source it in your `.bashrc` or `.zshrc` file by adding this line to the end of the file: `source ~/.bbedit.shell`  If you use `sudo` you'll need to add this to the root's `.bashrc` or `.zshrc` file as well. Change the two variables at the top of the file to match your environment. The directory you specify in `.bbedit.shell` must already exist on the intermediate host.
 
 4. Copy the `Remote-BBEdit.py` file to `$HOME/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch` on the local host. This will cause the script to run every time you start iTerm2.
 
@@ -32,4 +32,4 @@ The shell function provides a command on the remote host named `bbedit` that cop
 
 SSH from the local host to the remote host then enter `bbedit README.md` . This will open a BBEdit window with the `README.md` file ready for editing. When you're done in BBEdit, save and close the file. If you don't close the file, the script will not know that you're finished editing the file. After closing the file in BBEdit, the command prompt will return on the remote host.
 
-This script does not rely on iTerm2's shell integration features, so it can safely be used inside `tmux` or `shell`.
+This script does not rely on iTerm2's shell integration features, so it can safely be used inside `tmux` or `shell`. It can also be used when making multiple SSH hops between the local and remote hosts as long as the final host has access to the intermediate host.
