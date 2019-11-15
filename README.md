@@ -1,12 +1,6 @@
 # remote-bbedit
-Uses iTerm2's shell integration to open remote documents in BBEdit
+This python script and shell function use iTerm2's API to open remote documents in BBEdit
 
-Process:
+# How It Works #
 
-1) Use rsync to copy the remote file to an intermediate host that isn't behind a restrictive firewall
-2) Print to the screen a bbedit command with the appropriate sftp address to open the copy on the intermediate host on the local workstation
-3) Copy the command displayed on the remote terminal window and paste into a local workstation terminal window
-4) Wait for the user to press a key in the remote terminal window indicating that they've finished editing the file in BBEdit
-5) Use rsync to copy the file back from the intermediate server to the remote server
-
-This project uses the iTerm Python API to automate steps 3 and 4 on the local host, and a simple shell script to automate the rest on the remote host.
+The shell function provides a command on the remote host named `bbedit` that copies the referenced file via SFTP to an intermediate server that is reachable by both the local and remote hosts. It then sends a control sequence that iTerm detects and launches the python script on the local host that opens the referenced file via SFTP on the intermediate host. When the file is saved and closed, the remote host then copies the file back to its original location, deleting the copy on the remote host.
