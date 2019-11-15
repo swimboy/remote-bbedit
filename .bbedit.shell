@@ -3,6 +3,6 @@ function bbedit {
 	syncdir="bbedit"
 	rsync "$@" "$synchost:$syncdir"
 	printf "\033]1337;Custom=id=%s:%s\a" "remote-bbedit" "sftp://$synchost:/$syncdir/$@"
-	read -k1 -s
+	read -dY -s
 	rsync --remove-source-files "$synchost:$syncdir/$@" .
 }

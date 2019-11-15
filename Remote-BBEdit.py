@@ -11,5 +11,5 @@ async def main(connection):
             match = await mon.async_get()
             session = app.current_terminal_window.current_tab.current_session
             os.system("/usr/local/bin/bbedit --wait --resume -- " + match.string)
-            await session.async_send_text(" ")
+            await session.async_send_text("Y")
 iterm2.run_forever(main)
