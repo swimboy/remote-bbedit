@@ -33,3 +33,13 @@ The shell function provides a command on the remote host named `bbedit` that cop
 SSH from the local host to the remote host then enter `bbedit README.md` . This will open a BBEdit window with the `README.md` file ready for editing. When you're done in BBEdit, save and close the file. If you don't close the file, the script will not know that you're finished editing the file. After closing the file in BBEdit, the command prompt will return on the remote host.
 
 This script does not rely on iTerm2's shell integration features, so it can safely be used inside `tmux` or `shell`. It can also be used when making multiple SSH hops between the local and remote hosts as long as the final host has access to the intermediate host.
+
+## Limitations ##
+
+While you can have different remote hosts utilize different intermediate hosts, all intermediate hosts must be accessible by the local host.
+
+The remote shell command cannot be backgrounded. If you want to open the file for editing and continue working in the remote shell, you must use `tmux` with iTerm's shell integration. The local host must be able to send a keystroke back to the remote shell process to indicate that it is done editing the file, and it can only do that if it is running in an active terminal window. (If you absolutely must background the remote shell task, you can manually type `shift-Y` after bringing the task back to the foreground to tell the process that you're done editing and have saved and closed the file.)
+
+You can only edit one file at a time. If you invoke the command a second time, the request will queue up, and the second file won't open until you close the first file. Hopefully, this issue will be resolved in a future releae.
+
+You can't transfer changes to the file back to the remote host without closing the file. That means that if you want to see the result of your changes and then make more modifications to the file, you must close and re-open the file each time. A fix for this is planned for a future release as well.
