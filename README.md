@@ -4,6 +4,10 @@ This python script and shell function use iTerm2's API to open remote documents 
 This solution will work as long as the local and remote users have SSH access to an intermediate server where the file to be edited is stored temporarily.
 
 ---
+- [How It Works](#how-it-works)
+- [How to Install](#how-to-install)
+- [How to Use](#how-to-use)
+- [Limitations](#limitations)
 
 ## How It Works ##
 
